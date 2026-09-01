@@ -334,6 +334,23 @@ input:focus-visible {
   margin-top: 20px;
 }
 
+.play-control {
+  display: flex;
+  min-width: 72px;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.play-mode-label {
+  min-width: 58px;
+  color: rgb(255 255 255 / 55%);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
 .icon-button,
 .play-button,
 .volume-button {
@@ -392,6 +409,16 @@ input:focus-visible {
   transition: filter 180ms ease, transform 180ms ease;
 }
 
+.play-button[data-state="playing"] {
+  color: #e72a45;
+  background: linear-gradient(135deg, #fff7f1, #ffd5c3);
+  box-shadow:
+    0 0 0 7px rgb(255 255 255 / 7%),
+    0 0 0 14px rgb(240 49 86 / 15%),
+    0 14px 32px rgb(239 31 77 / 46%);
+  animation: playing-pulse 1.6s ease-in-out infinite;
+}
+
 .play-button:hover {
   filter: brightness(1.1);
 }
@@ -409,8 +436,29 @@ input:focus-visible {
   stroke-linecap: round;
 }
 
+.play-button[data-state="playing"] #pauseIcon {
+  fill: currentColor;
+  stroke: none;
+}
+
 #playIcon {
   transform: translateX(2px);
+}
+
+@keyframes playing-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 7px rgb(255 255 255 / 7%),
+      0 0 0 14px rgb(240 49 86 / 15%),
+      0 14px 32px rgb(239 31 77 / 46%);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px rgb(255 255 255 / 7%),
+      0 0 0 20px rgb(240 49 86 / 5%),
+      0 14px 38px rgb(239 31 77 / 58%);
+  }
 }
 
 .utility-row {

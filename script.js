@@ -5,6 +5,10 @@
   const playButton = document.querySelector('#playButton');
   const playIcon = document.querySelector('#playIcon');
   const pauseIcon = document.querySelector('#pauseIcon');
+  const playModeLabel = document.querySelector('#playModeLabel');
+  const trackTitle = document.querySelector('#trackTitle');
+  const trackSubtitle = document.querySelector('#trackSubtitle');
+  const editionLabel = document.querySelector('#editionLabel');
   const backButton = document.querySelector('#backButton');
   const forwardButton = document.querySelector('#forwardButton');
   const volumeButton = document.querySelector('#volumeButton');
@@ -15,7 +19,27 @@
   const durationLabel = document.querySelector('#duration');
   const playerStatus = document.querySelector('#playerStatus');
 
-  const fallbackDuration = 170.48;
+  const tracks = {
+    anniversary: {
+      source: './audio/anniversary-rap.mp3',
+      duration: 170.48,
+      title: 'Happy Anniversary',
+      subtitle: '1st Anniversary · Rap / Hip-hop',
+      edition: 'ANNIVERSARY EDIT',
+      pageTitle: 'Happy Anniversary | Music Player',
+    },
+    dance: {
+      source: './audio/enm-dance.mp3',
+      duration: 214.36,
+      title: 'ENM Dance',
+      subtitle: 'ENM · Dance · 03:34',
+      edition: 'DANCE EDIT',
+      pageTitle: 'ENM Dance | Music Player',
+    },
+  };
+  const selectedTrack = new URLSearchParams(window.location.search).get('track');
+  const track = selectedTrack === 'dance' ? tracks.dance : tracks.anniversary;
+  const fallbackDuration = track.duration;
   const barHeights = [
     24, 36, 48, 64, 42, 72, 56, 84, 66, 38, 78, 92, 62, 46, 74, 54,
     88, 68, 44, 80, 58, 96, 70, 52, 86, 64, 40, 76, 50, 68, 34, 58,
@@ -32,6 +56,13 @@
     Number.isFinite(audio.duration) && audio.duration > 0
       ? audio.duration
       : fallbackDuration;
+
+  audio.src = track.source;
+  document.title = track.pageTitle;
+  trackTitle.textContent = track.title;
+  trackSubtitle.textContent = track.subtitle;
+  editionLabel.textContent = track.edition;
+  audio.load();
 
   const updateProgress = () => {
     const duration = getDuration();
@@ -54,7 +85,9 @@
     waveform.dataset.playing = String(isPlaying);
     playIcon.hidden = isPlaying;
     pauseIcon.hidden = !isPlaying;
+    playButton.dataset.state = isPlaying ? 'playing' : 'paused';
     playButton.setAttribute('aria-label', isPlaying ? '일시정지' : '재생');
+    playModeLabel.textContent = isPlaying ? '일시정지' : '재생';
     playerStatus.textContent = isPlaying ? '음악 재생 중' : '음악 일시 정지';
   };
 

@@ -19,6 +19,11 @@
 
 그다음 저장소의 **Settings → Pages → Deploy from a branch**에서 `main` 브랜치와 `/ (root)`를 선택하면 됩니다.
 
+## 공개 페이지
+
+- 기념일 랩: `index.html`
+- ENM 댄스: `index.html?track=dance`
+
 ## 내용 수정
 
 - 제목과 문구: `index.html`

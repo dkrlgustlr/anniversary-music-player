@@ -10,8 +10,8 @@
     <meta property="og:image" content="./images/anniversary-main.png?v=2" />
     <title>Happy Anniversary | Music Player</title>
     <link rel="preload" href="./images/anniversary-main.png?v=2" as="image" />
-    <link rel="stylesheet" href="./styles.css?v=5" />
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=6" />
+    <script src="./script.js?v=6" defer></script>
   </head>
   <body>
     <main class="site-frame">
@@ -32,7 +32,7 @@
             <header class="player-heading">
               <div>
                 <p class="eyebrow">NOW PLAYING</p>
-                <p class="edition-label">ANNIVERSARY EDIT</p>
+                <p class="edition-label" id="editionLabel">ANNIVERSARY EDIT</p>
               </div>
               <svg class="heart-icon" viewBox="0 0 24 24" aria-label="기념일 트랙">
                 <path d="M12 21s-7.5-4.35-9.55-8.17C.8 9.76 2.03 5.8 5.45 4.54 7.4 3.82 9.5 4.4 12 6.92c2.5-2.52 4.6-3.1 6.55-2.38 3.42 1.26 4.65 5.22 3 8.29C19.5 16.65 12 21 12 21Z" />
@@ -44,8 +44,8 @@
                 <img src="./images/anniversary-main.png?v=2" alt="" />
               </div>
               <div class="track-copy">
-                <h1>Happy Anniversary</h1>
-                <p>1st Anniversary · Rap / Hip-hop</p>
+                <h1 id="trackTitle">Happy Anniversary</h1>
+                <p id="trackSubtitle">1st Anniversary · Rap / Hip-hop</p>
               </div>
             </div>
 
@@ -79,14 +79,18 @@
                 </svg>
               </button>
 
-              <button class="play-button" id="playButton" type="button" aria-label="재생">
-                <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m8 5 11 7-11 7V5Z" />
-                </svg>
-                <svg id="pauseIcon" viewBox="0 0 24 24" aria-hidden="true" hidden>
-                  <path d="M8 5v14M16 5v14" />
-                </svg>
-              </button>
+              <div class="play-control">
+                <button class="play-button" id="playButton" type="button" aria-label="재생" data-state="paused">
+                  <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m8 5 11 7-11 7V5Z" />
+                  </svg>
+                  <svg id="pauseIcon" viewBox="0 0 24 24" aria-hidden="true" hidden>
+                    <rect x="6" y="5" width="4" height="14" rx="1"></rect>
+                    <rect x="14" y="5" width="4" height="14" rx="1"></rect>
+                  </svg>
+                </button>
+                <span class="play-mode-label" id="playModeLabel">재생</span>
+              </div>
 
               <button class="icon-button" id="forwardButton" type="button" aria-label="10초 앞으로">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
