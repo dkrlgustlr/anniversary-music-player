@@ -409,16 +409,6 @@ input:focus-visible {
   transition: filter 180ms ease, transform 180ms ease;
 }
 
-.play-button[data-state="playing"] {
-  color: #e72a45;
-  background: linear-gradient(135deg, #fff7f1, #ffd5c3);
-  box-shadow:
-    0 0 0 7px rgb(255 255 255 / 7%),
-    0 0 0 14px rgb(240 49 86 / 15%),
-    0 14px 32px rgb(239 31 77 / 46%);
-  animation: playing-pulse 1.6s ease-in-out infinite;
-}
-
 .play-button:hover {
   filter: brightness(1.1);
 }
@@ -436,29 +426,14 @@ input:focus-visible {
   stroke-linecap: round;
 }
 
-.play-button[data-state="playing"] #pauseIcon {
-  fill: currentColor;
-  stroke: none;
+.play-button > i {
+  display: inline-block;
+  font-size: 28px;
+  line-height: 1;
 }
 
 #playIcon {
   transform: translateX(2px);
-}
-
-@keyframes playing-pulse {
-  0%,
-  100% {
-    box-shadow:
-      0 0 0 7px rgb(255 255 255 / 7%),
-      0 0 0 14px rgb(240 49 86 / 15%),
-      0 14px 32px rgb(239 31 77 / 46%);
-  }
-  50% {
-    box-shadow:
-      0 0 0 7px rgb(255 255 255 / 7%),
-      0 0 0 20px rgb(240 49 86 / 5%),
-      0 14px 38px rgb(239 31 77 / 58%);
-  }
 }
 
 .utility-row {
