@@ -31,10 +31,10 @@
     dance: {
       source: './audio/enm-dance.mp3',
       duration: 214.36,
-      title: 'ENM Dance',
-      subtitle: 'ENM · Dance · 03:34',
+      title: 'EDM Dance',
+      subtitle: 'EDM · Dance · 03:34',
       edition: 'DANCE EDIT',
-      pageTitle: 'ENM Dance | Music Player',
+      pageTitle: 'EDM Dance | Music Player',
     },
   };
   const selectedTrack = new URLSearchParams(window.location.search).get('track');

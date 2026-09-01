@@ -22,7 +22,7 @@
 ## 공개 페이지
 
 - 기념일 랩: `index.html`
-- ENM 댄스: `index.html?track=dance`
+- EDM 댄스: `index.html?track=dance`
 
 ## 내용 수정
 
